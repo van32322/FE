@@ -122,6 +122,7 @@
 
         li {
             list-style: none;
+            position: relative;
 
             a {
                 text-decoration: none;
@@ -136,8 +137,38 @@
             }
         }
 
+        li:hover .header-menu-drop {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .active a {
             color: map.get($theme-color, "main");
+        }
+
+        .header-menu-drop {
+            background: #222222;
+            display: block;
+            position: absolute;
+            width: 180px;
+            z-index: 9;
+            padding: 5px 0;
+            transition: all, 0.3s;
+            opacity: 0;
+            visibility: hidden;
+
+            li {
+                a {
+                    text-transform: capitalize;
+                    color: #ffffff;
+                    font-weight: 400;
+                    padding: 5px 15px;
+                }
+
+                :hover {
+                    color: map.get($theme-color, 'main')
+                }
+            }
         }
     }
 }
