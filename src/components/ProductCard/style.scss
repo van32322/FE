@@ -1,0 +1,114 @@
+@use "sass:map";
+@import "../../styles/pages/all";
+
+.featured_item {
+    margin-bottom: 50px;
+
+    &:hover {
+        .featured_item_pic_hover {
+            top: 80% !important;
+        }
+    }
+
+    .featured_item_pic {
+        height: 270px;
+        position: relative;
+        overflow: hidden;
+        background-position: center center;
+
+        .featured_item_pic_hover {
+            position: absolute;
+            left: 0;
+            top: 120%;
+            width: 100%;
+            text-align: center;
+            transition: all, 0.5s;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                margin-right: 30px;
+
+
+
+                &:hover {
+
+
+                    svg {
+                        background: #7fad39;
+                        border-color: #7fad39;
+                        color: #ffffff;
+                        transform: rotate(360deg) !important;
+                    }
+                }
+
+                svg {
+                    background: #ffffff;
+                    color: #565555;
+                    padding: 15px;
+                    border: 1px solid #ebebeb;
+                    width: 50px;
+                    height: 50px;
+                    transition: all 0.3s;
+                    border-radius: 50%;
+                }
+
+            }
+        }
+
+
+    }
+
+    .featured_item_text {
+        
+
+        h6 {
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        h5 {
+            color: map.get($theme-color, "normal-text");
+            font-weight: bold;
+        }
+
+        a {
+            color: map.get($theme-color, "normal-text");
+            font-weight: 200;
+            text-decoration: none;
+        }
+    }
+    .featured_item_icon1{
+        display: flex;
+        gap:20px;
+        svg{
+            margin-top: 3px;
+            color: yellow;
+        }
+        .rating{
+            padding-right: 10px;
+            border-right: 1px solid #000000;
+            display: flex;
+            gap: 10px;
+        }
+    }
+    .featured_item_icon2{
+        display: flex;
+        svg{
+            margin-top: 3px;         
+        }
+        .delivery{
+            padding-right: 10px;
+            border-right: 1px solid #000000;
+            display: flex;
+            gap: 10px;
+        }
+        h6{
+            margin-top: 2px;
+            svg{
+                margin-top: 0;
+                margin-bottom: 3px;
+            }
+        }
+    }
+}

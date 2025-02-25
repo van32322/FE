@@ -1,70 +1,47 @@
 @use "sass:map";
 @import "theme";
 @import "responsive";
+@import "bootstrap/scss/bootstrap"; // Giữ nguyên Bootstrap
 
+// Reset CSS cơ bản
 html,
 body {
     margin: 0;
-
+    padding: 0;
 }
 
 * {
-    font-family: Roboto;
-    padding: 0;
-    margin: 0;
+    font-family: Roboto, sans-serif;
 }
 
+// Tùy chỉnh container (nếu muốn)
 .container {
-    max-width: 1170px;
+    max-width: 1170px; // Bootstrap mặc định là 1140px, có thể giữ lại nếu muốn
+}
+
+// Tùy chỉnh nút bấm, sử dụng Bootstrap btn
+.button-submit {
+    @extend .btn; // Kế thừa Bootstrap button
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    background: map.get($theme-color, "main");
+    border: none;
+}
+input,textarea{
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    //background-color: map.get($theme-color, "main");
-    margin: auto;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.col-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-
-.col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-}
-
-.col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-
-@include Responsive($DESKTOP) {
-    .col-xl-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-
-    .col-xl-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
+    height: 35px;
+    border: 1px solid #ebebeb;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #b2b2b2;
+    border-radius: 3px;
+    &:focus{
+        outline: none;
     }
 }
-
-@include Responsive($MEDIUM_DEVICE) {
-    .col-lg-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-}
-
-@include Responsive($SMALL_DEVICE) {
-    // .col-lg-3 {
-    //     flex: 0 0 25%;
-    //     max-width: 25%;
-    // }
+textarea{
+    padding-top: 10px;
 }
