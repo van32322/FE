@@ -6,11 +6,12 @@ import HeaderAd from "../header/index";
 const MasterAdLayout = ({ children, ...props }) => {
     const location=useLocation();
     const isLoginPage = location.pathname.startsWith(ROUTERS.ADMIN.LOGIN);
+    const isRegisterPage = location.pathname.startsWith(ROUTERS.ADMIN.REGISTER);
     return (
         <div {...props}>    
-            {!isLoginPage && <HeaderAd/>}
+            {!isLoginPage && <HeaderAd/> && !isRegisterPage}
             {children}
-            {!isLoginPage && <Footer />}
+            {!isLoginPage && <Footer /> && !isRegisterPage}
         </div>
     );
 };

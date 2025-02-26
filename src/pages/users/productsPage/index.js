@@ -1,11 +1,10 @@
-import { memo } from "react";
-import Breadcrumb from "../theme/breadcrumb";
+import { memo, useEffect, useState } from "react";import Breadcrumb from "../theme/breadcrumb";
 import "./style.scss"
 import { Link } from "react-router-dom";
 import { categories } from "../theme/header";
 import { ROUTERS } from "utils/router";
 import ProductCard from "components/ProductCard";
-import bannerImg from "../../../assets/users/images/hero/banner.png";
+import { getAllProducts } from "services/UserService";
 const ProductsPage = () => {
     const sorts = [
         "Giá thấp đến cao",
@@ -15,23 +14,20 @@ const ProductsPage = () => {
         "Bán chạy nhất",
         "Đang giảm giá",
     ];
-    const products = [
-        {
-            img: bannerImg,
-            name: "chuoi",
-            price: 200,
-        },
-        {
-            img: bannerImg,
-            name: "chuoi",
-            price: 200,
-        },
-        {
-            img: bannerImg,
-            name: "chuoi",
-            price: 200,
-        }
-    ]
+    const [products, setProducts] = useState([]);
+    
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await getAllProducts();
+                setProducts(res.data);
+            } catch (error) {
+                console.error("Lỗi khi tải danh sách sản phẩm:", error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
     return (
         <>
             <Breadcrumb name="danh sách sản phẩm" />
@@ -80,11 +76,20 @@ const ProductsPage = () => {
                     </div>
                     <div className="col-lg-9">
                         <div className="row">
-                            {products.map((item, key) => (
-                                <div className="col-lg-4" key={key}>
-                                    <ProductCard name={item.name} img={item.img} price={item.price} />
-                                </div>
-                            ))}
+                        {products.length > 0 ? (
+                                products.map((product) => (
+                                    <div className="col-lg-4" key={product.id}>
+                                        <ProductCard
+                                            productId={product.id}
+                                            name={product.name}
+                                            img={product.img}
+                                            price={product.price}
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Không có sản phẩm nào.</p>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,8 @@ import CheckoutPage from "pages/users/checkoutPage";
 import LoginAdPage from "pages/admin/loginPage";
 import MasterAdLayout from "pages/admin/theme/masterAdLayout";
 import OrderPage from "pages/admin/orderPage";
+import RegisterPage from "pages/admin/registerPage";
+
 const renderUserRouter = () => {
     const userRouters = [
         {
@@ -21,22 +23,22 @@ const renderUserRouter = () => {
             component: <ProfilePage />
         },
         {
-            path: ROUTERS.USER.PRODUCTS,    
+            path: ROUTERS.USER.PRODUCTS,
             component: <ProductsPage />
         },
         {
-            path: ROUTERS.USER.PRODUCT,    
+            path: ROUTERS.USER.PRODUCT,
             component: <ProductDetailPage />
         },
         {
-            path: ROUTERS.USER.SHOPPING_CART,    
+            path: ROUTERS.USER.SHOPPING_CART,
             component: <ShoppingCartPage />
         },
         {
-            path: ROUTERS.USER.CHECKOUT,    
+            path: ROUTERS.USER.CHECKOUT,
             component: <CheckoutPage />
         },
-        
+
     ]
     return (
         <MasterLayout>
@@ -57,10 +59,14 @@ const renderAdminRouter = () => {
             component: <LoginAdPage />
         },
         {
-            path: ROUTERS.ADMIN.ORDERS,    
+            path: ROUTERS.ADMIN.ORDERS,
             component: <OrderPage />
         },
-        
+        {
+            path: ROUTERS.ADMIN.REGISTER,
+            component: <RegisterPage />
+        },
+
     ]
     return (
         <MasterAdLayout>
@@ -75,7 +81,7 @@ const renderAdminRouter = () => {
     )
 }
 const RouteCustom = () => {
-    const location=useLocation();
+    const location = useLocation();
     const isAdminRouters = location.pathname.startsWith(ADMIN_PATH);
     return isAdminRouters ? renderAdminRouter() : renderUserRouter();
 }

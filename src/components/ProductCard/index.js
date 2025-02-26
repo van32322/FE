@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
 import { generatePath, Link } from "react-router-dom";
 import { formatter } from "utils/formater";
@@ -7,13 +7,29 @@ import { ROUTERS } from "utils/router";
 import { FaStar } from "react-icons/fa6";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { MdOutlineLocationOn } from "react-icons/md";
-const ProductCard = ({ img, name, price }) => {
+import { getProductById } from "services/UserService";
+const ProductCard = ({ productId }) => {
+    const [product, setProduct] = useState(null);
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const res = await getProductById(productId);
+                setProduct(res.data);
+            } catch (error) {
+                console.error("Lỗi khi tải sản phẩm:", error);
+            }
+        };
+
+        fetchProduct();
+    }, [productId]);
+
+    if (!product) return <p>Loading...</p>;
     return (
         <>
             <div className="featured_item">
                 <div className="featured_item_pic"
                     style={{
-                        backgroundImage: `url(${img})`
+                        backgroundImage: `url(${product.img})`
                     }}>
                     <ul className="featured_item_pic_hover">
                         <li>
@@ -26,23 +42,23 @@ const ProductCard = ({ img, name, price }) => {
                 </div>
                 <div className="featured_item_text">
                     <h6>
-                        <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: 1 })}>{name}</Link>
+                        <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: product.id })}>{product.name}</Link>
                     </h6>
                     <h5>
-                        {formatter(price)}
+                        {formatter(product.price)}
                     </h5>
                 </div>
                 <div className="featured_item_icon1">
                     <div className="rating">
-                        <FaStar />4.9
+                        <FaStar />{product.rating || 0}
                     </div>
-                    <h6>đã bán 400</h6>
+                    <h6>{product.sold || 0}</h6>
                 </div>
                 <div className="featured_item_icon2">
                     <div className="delivery">
-                    <CiDeliveryTruck />4-5 ngày
+                        <CiDeliveryTruck />{product.deliveryTime || "N/A"}
                     </div>
-                    <h6><MdOutlineLocationOn />Hà nội</h6>
+                    <h6><MdOutlineLocationOn />{product.location || "Không rõ"}</h6>
                 </div>
             </div>
         </>

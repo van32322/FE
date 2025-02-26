@@ -1,24 +1,35 @@
 import { memo, useState } from "react";
 import "./style.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTERS } from "utils/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { loginApi } from "services/UserService";
 const LoginAdPage = () => {
-    const handleLogin = async () => {
-        let res = await loginApi(username, password);
-        return;
-    }
     const [username, setUserName] = useState("");
     const [password, setPassWord] = useState("");
     const [isShowPassword, setIsShowPassWord] = useState(false);
     const navigate = useNavigate();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate(ROUTERS.ADMIN.ORDERS);
+        try {
+            let res = await loginApi(username, password);
+            if (res && res.token) {
+                localStorage.setItem("token", res.token);
+                if (res.role && res.role === "admin") {
+                    navigate(ROUTERS.ADMIN.ORDERS);
+                } else {
+                    navigate(ROUTERS.USER.HOME);
+                }
+            }
+        }
+        catch (error) {
+            console.error("Lỗi khi gọi API:", error);
+        }
+        return;
     }
     return (
         <div className="login">
+            <div className="login_background"></div>
             <div className="login_container">
                 <h2 className="login_title">Đăng nhập</h2>
                 <form className="login_form" onSubmit={handleSubmit}>
@@ -39,8 +50,10 @@ const LoginAdPage = () => {
                             </span>
                         </div>
                     </div>
-                    <button type="submit" className="login_button" onClick={() => handleLogin}>Đăng nhập</button>
+                    
+                    <button type="submit" className="login_button" >Đăng nhập</button>
                 </form>
+                <Link to={ROUTERS.ADMIN.REGISTER}>Chuyển sang đăng kí</Link>
             </div>
         </div>
     );
