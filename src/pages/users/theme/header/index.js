@@ -13,7 +13,9 @@ export const categories = [
     "Cầu lông",
     "Quần vợt"
 ]
+
 const Header = () => {
+    const [username, setUsername] = useState("");
     const navigate= useNavigate();
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname.length <= 1);
@@ -55,7 +57,17 @@ const Header = () => {
             path: "",
         },
     ])
-
+    const handleLogout = () => {
+        localStorage.removeItem("username"); // Xóa username khỏi localStorage
+        setUsername(""); // Cập nhật lại state
+        navigate(ROUTERS.USER.HOME); // Điều hướng về trang chủ
+    };
+    useEffect(() => {
+        const storedUser = localStorage.getItem("username");
+        if (storedUser) {
+            setUsername(storedUser);
+        }
+    }, []);
     useEffect(() => {
         const isHome = location.pathname.length <= 1;
         setIsHome(isHome);
@@ -76,7 +88,16 @@ const Header = () => {
                         </div>
                         <div className="col-6 header_top_right">
                             <SearchBar></SearchBar>
-                            <span onClick={()=>navigate(ROUTERS.ADMIN.LOGIN)}>Đăng nhập</span>
+                            {username ? (
+                            <div className="header_top_right_group">
+                                <span>Xin chào, {username}</span> |
+                                <div className="logout_btn" onClick={handleLogout}>
+                                    Đăng xuất
+                                </div>
+                            </div>
+                        ) : (
+                            <span onClick={() => navigate(ROUTERS.ADMIN.LOGIN)}>Đăng nhập</span>
+                        )}
                         </div>
                     </div>
                 </div>

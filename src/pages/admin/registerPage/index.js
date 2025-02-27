@@ -3,7 +3,7 @@ import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import { ROUTERS } from "utils/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { registerApi } from "services/UserService";
+import { apiRegister } from "services/UserService";
 const RegisterPage = () => {
     const [username, setUserName] = useState("");
     const [password, setPassWord] = useState("");
@@ -20,7 +20,7 @@ const RegisterPage = () => {
             return;
         }
         try {
-            let res = await registerApi(username, password);
+            let res = await apiRegister(username, password);
             if (res && res.data) {
                 alert("Đăng ký thành công!");
                 navigate(ROUTERS.ADMIN.LOGIN);

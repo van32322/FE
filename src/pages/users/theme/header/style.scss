@@ -48,7 +48,13 @@ $bannerImg: "/assets/users/images/hero/banner.png";
     justify-content: end;
     padding: 5px 0 13px;
     align-items: center;
-
+    &_group{
+        display: flex;
+        .logout_btn{
+            color: red;
+            cursor: pointer;
+        }
+    }
 
     span {
         border-radius: 30px;

@@ -3,7 +3,7 @@ import "./style.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTERS } from "utils/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { loginApi } from "services/UserService";
+import { apiLogin } from "services/UserService";
 const LoginAdPage = () => {
     const [username, setUserName] = useState("");
     const [password, setPassWord] = useState("");
@@ -12,7 +12,7 @@ const LoginAdPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let res = await loginApi(username, password);
+            let res = await apiLogin(username, password);
             if (res && res.token) {
                 localStorage.setItem("token", res.token);
                 if (res.role && res.role === "admin") {

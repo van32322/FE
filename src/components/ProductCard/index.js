@@ -7,13 +7,13 @@ import { ROUTERS } from "utils/router";
 import { FaStar } from "react-icons/fa6";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { MdOutlineLocationOn } from "react-icons/md";
-import { getProductById } from "services/UserService";
+import { apiGetProductById } from "services/UserService";
 const ProductCard = ({ productId }) => {
     const [product, setProduct] = useState(null);
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await getProductById(productId);
+                const res = await apiGetProductById(productId);
                 setProduct(res.data);
             } catch (error) {
                 console.error("Lỗi khi tải sản phẩm:", error);

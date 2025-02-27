@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { categories } from "../theme/header";
 import { ROUTERS } from "utils/router";
 import ProductCard from "components/ProductCard";
-import { getAllProducts } from "services/UserService";
+import { apiGetAllProducts } from "services/UserService";
 const ProductsPage = () => {
     const sorts = [
         "Giá thấp đến cao",
@@ -19,7 +19,7 @@ const ProductsPage = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await getAllProducts();
+                const res = await apiGetAllProducts();
                 setProducts(res.data);
             } catch (error) {
                 console.error("Lỗi khi tải danh sách sản phẩm:", error);
