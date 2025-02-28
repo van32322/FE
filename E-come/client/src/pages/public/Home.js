@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Banner, Sidebar } from "../../components";
+import React from "react";
+import { Banner, Sidebar,BestSellers } from "../../components";
 import "../../styles/Home.scss"
-import { apiGetProducts } from "../../apis/products";
-const Home = () => {
-    const fetchProduct = async () => {
-        const [bestSellers, newProducts] = await Promise.all([apiGetProducts({ order: '-sold' }), apiGetProducts({ order: '-createdAt' })])
 
-    }
-    useEffect(() => {
-        fetchProduct()
-    }, [])
+const Home = () => {
+    
     return (
         <div className="home_container">
             <div className="home_container_sidebar">
@@ -18,8 +12,9 @@ const Home = () => {
             </div>
             <div className="home_container_banner">
                 <Banner />
-                <span>Best seller</span>
+                <BestSellers/>
             </div>
+            <div className=""></div>
         </div>
     )
 }

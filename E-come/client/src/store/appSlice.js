@@ -7,9 +7,7 @@ export const appSlice = createSlice({
         isLoading: false
     },
     reducers: {
-        // logout: (state) => {
-        //     state.isLoading = false
-        // }
+        
     },
     extraReducers: (builder) => {
         builder.addCase(actions.getCategories.pending, (state) => {
@@ -27,5 +25,5 @@ export const appSlice = createSlice({
         });
     },
 })
-export const {} = appSlice.actions
+// export const {} = appSlice.actions
 export default appSlice.reducer

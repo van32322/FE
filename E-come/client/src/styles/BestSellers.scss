@@ -1,0 +1,35 @@
+.bestSellers_container {
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.bestSellers_title {
+    padding-right: 32px;
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding-right: 32px;
+    color: gray;
+
+    &_active {
+        color: black;
+    }
+}
+
+.bestSellers_content {
+    border-top:1px solid red ;
+    margin: 16px 10px 0 10px;
+    padding-right: 20px;
+    padding-top: 16px;
+}
+.bestSellers_image_group{
+    width: 100%;
+    display: flex;
+    gap:14px;
+    margin-top: 16px;
+}
+.bestSellers_image{
+    flex: 1 1 0%;
+    object-fit: contain;
+}

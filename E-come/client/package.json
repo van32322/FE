@@ -19,7 +19,8 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^11.0.5",
     "redux-persist": "^6.0.0",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

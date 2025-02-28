@@ -1,0 +1,17 @@
+.icon_container {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover{
+        background-color: #1F2937;
+        color:white;
+        border: #1F2937;
+    }
+}
+

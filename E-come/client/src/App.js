@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { BrowserRouter ,  Route, Routes } from 'react-router-dom';
+import {   Route, Routes } from 'react-router-dom';
 import { Login, Home, Public } from './pages/public';
 import path from './utils/path';
 import {getCategories} from './store/asyncActions';
@@ -8,7 +8,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(getCategories())
-  },[])
+  },[dispatch])
   return (
 
     <div>
