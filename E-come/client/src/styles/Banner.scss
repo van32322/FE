@@ -1,0 +1,8 @@
+.banner_container{
+    width: 100%;
+    &_image{
+        height: 400px;
+        width: 100%;
+        object-fit: contain;
+    }
+}

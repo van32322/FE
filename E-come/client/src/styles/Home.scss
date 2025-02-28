@@ -1,0 +1,19 @@
+.home_container {
+    width: 1220px;
+    display: flex;
+
+    &_sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 20%;
+    }
+
+    &_banner {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-left: 20px;
+        flex: 80%;
+    }
+}
