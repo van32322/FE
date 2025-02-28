@@ -1,0 +1,82 @@
+.dealDaily_container {
+    flex: auto;
+    width: 100%;
+}
+
+.dealDaily_header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.dealDaily_image {
+    width: 100%;
+    object-fit: contain;
+}
+
+.dealDaily_icon {
+    padding-left: 16px;
+    display: flex;
+    justify-content: center;
+
+    svg {
+        color: #DD1111;
+    }
+}
+
+.dealDaily_content {
+    padding-top: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dealDaily_star {
+    display: flex;
+    height: 16px;
+}
+
+.dealDaily_title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 15px;
+    align-items: start;
+    width: 100%;
+}
+
+.dealDaily_button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: red;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px 0 8px 0;
+
+    &:hover {
+        background-color: gray;
+        color: white;
+    }
+}
+
+.dealDaily_button_group {
+    padding: 0 16px 0 16px;
+    margin-top: 16px;
+}
+.dealDaily_countdown{
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}

@@ -32,3 +32,10 @@ button.slick-prev::before{
     justify-content: center;
     align-items: center;
 }
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Giới hạn số dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Hiển thị dấu "..." */
+  }

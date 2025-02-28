@@ -1,0 +1,19 @@
+.countdown_container{
+    width: 30%;
+    height: 60px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    background-color: #F4F4F4;
+    border-radius: 6px;
+    flex-direction: column;
+}
+.countdown_number{
+    padding-top: 10px;
+    font-size: 18px;
+    color: #1F2937 ;
+}
+.countdown_unit{
+    font-size: 20px;
+    color: #374151  ;
+}

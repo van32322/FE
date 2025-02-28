@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner, Sidebar,BestSellers } from "../../components";
+import { Banner, Sidebar,BestSellers,DealDaily } from "../../components";
 import "../../styles/Home.scss"
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
         <div className="home_container">
             <div className="home_container_sidebar">
                 <Sidebar />
-                <span>Deal daily</span>
+                <DealDaily/>
             </div>
             <div className="home_container_banner">
                 <Banner />
