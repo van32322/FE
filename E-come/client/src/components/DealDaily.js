@@ -1,10 +1,13 @@
 import React, { useState, useEffect, memo } from "react";
 import '../styles/DealDaily.scss'
 import icons from "../utils/icons";
-import { apiGetProducts } from "../apis/products";
+import { apiGetProducts } from "../apis/product";
 import { formatMoney, renderStarFromNumber } from "../utils/helpers";
 import { Countdown } from './index';
+import moment from 'moment';
+import { secondsToHms } from '../utils/helpers'
 const { AiFillStar, AiOutlineMenu } = icons
+
 const DealDaily = () => {
     let idInterval
     const [dealDaily, setDealDaily] = useState(null);
@@ -12,11 +15,19 @@ const DealDaily = () => {
     const [minute, setMinute] = useState(0)
     const [second, setSecond] = useState(0)
     const [expireTime, setExpireTime] = useState(false)
+
     const fetchDealDaily = async () => {
         const response = await apiGetProducts({ limit: 1, page: Math.round(Math.random() * 10), totalRatings: 5 })
         if (response.success) {
             setDealDaily(response.products[0])
-            setHour(23)
+            const today = `${moment().format('MM/DD/YYYY')} 5:00:00`
+            const seconds = new Date(today).getTime() - new Date().getTime() + 24 * 3600 * 1000
+            const number = secondsToHms(seconds)
+            setHour(number.h)
+            setMinute(number.m)
+            setSecond(number.s)
+        } else {
+            setHour(0)
             setMinute(59)
             setSecond(59)
         }
@@ -29,7 +40,7 @@ const DealDaily = () => {
         fetchDealDaily()
     }, [expireTime])
     useEffect(() => {
-        idInterval   = setInterval(() => {
+        idInterval = setInterval(() => {
             if (second > 0) setSecond(prev => prev - 1)
             else {
                 if (minute > 0) {

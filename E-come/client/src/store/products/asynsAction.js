@@ -1,18 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as apis from "../apis";
+import * as apis from "../../apis";
 
-export const getCategories = createAsyncThunk(
-  "app/categories",
+export const getNewProducts = createAsyncThunk(
+  "product/newProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await apis.apiGetCategories();
+      const response = await apis.apiGetProducts({sort:'-createdAt'});
 
       // Kiểm tra nếu response không hợp lệ
       if (!response || !response.success) {
         return rejectWithValue(response?.message || "Lỗi không xác định");
       }
 
-      return response.prodCategories; // Trả về danh sách categories nếu thành công
+      return response.products; // Trả về danh sách categories nếu thành công
     } catch (error) {
       return rejectWithValue(error.message || "Lỗi khi gọi API");
     }

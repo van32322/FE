@@ -33,7 +33,9 @@ const Product = ({ productData, isNew }) => {
                 </div>
 
                 <div className="product_info">
-                    <span className="product_star">{renderStarFromNumber(productData?.totalRatings)}</span>
+                    <span className="product_star">{renderStarFromNumber(productData?.totalRatings)?.map((el,index)=>(
+                                                <span key={index}>{el}</span>
+                                            ))}</span>
                     <span className="product_title">{productData?.title}</span>
                     <span>{`${formatMoney(productData?.price)} VNĐ`}</span>
                 </div>

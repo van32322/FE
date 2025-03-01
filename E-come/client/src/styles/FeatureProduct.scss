@@ -1,0 +1,42 @@
+.featureProduct_container {
+    width: 100%;
+
+    &_title {
+        font-size: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid red;
+    }
+
+    &_productCard {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.featureProduct_image {
+    display: flex;
+    justify-content: space-between;
+    &_1{
+        width: 30%;
+        flex: auto;
+        object-fit: contain;
+
+    }
+    &_4{
+        width: 30%;
+        flex: auto;
+        object-fit: contain;
+
+    }
+}
+
+.featureProduct_image_group {
+    object-fit: contain;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+}
