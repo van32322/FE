@@ -1,0 +1,21 @@
+.button-container{
+    padding: 8px 16px 8px 16px;
+    border-radius: 6px;
+    color: white;
+    background-color: red;
+    font-weight: 500;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    &:hover {
+        background-color: #d63b2c;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.fit-width {
+        width: auto;
+    }
+}

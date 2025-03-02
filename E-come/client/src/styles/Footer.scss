@@ -1,0 +1,70 @@
+.footer_container {
+    width: 100%;
+
+    &_group_1 {
+        display: flex;
+        background-color: red;
+        height: 103px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    &_group_2 {
+        display: flex;
+        width: 100%;
+        background-color: black;
+        height: 100px;
+        justify-content: center;
+
+    }
+}
+
+.footer_email {
+    width: 1220px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+    &_group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_signup {
+        font-size: 20px;
+        color: white;
+    }
+
+    &_subcribe {
+        font-size: 13px;
+        color: lightgray;
+    }
+
+    &_button {
+        width:100%; 
+        background-color: #F04646;
+        padding: 16px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        outline:none;
+        color: #a9a7a7;
+    }
+    &_icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background-color: #F04646;
+        height: 56px;
+        width: 56px;
+
+    }
+}
+
+.footer_copyright {
+    width: 1220px;
+}

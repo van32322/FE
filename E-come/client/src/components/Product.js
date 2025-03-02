@@ -5,12 +5,15 @@ import label from "../assets/blank.webp"
 import { renderStarFromNumber } from '../utils/helpers'
 import { SelectOption } from '../components/index'
 import icons from '../utils/icons'
+import { Link } from "react-router-dom";
+import path from "../utils/path";
 const { AiFillEye, IoMenu, BsFillSuitHeartFill } = icons
 const Product = ({ productData, isNew }) => {
     const [isShowOption, setIsShowOption] = useState(false)
     return (
         <div className="product_container">
-            <div className="product_group"
+            <Link className="product_group"
+                to={`/${path.DETAIL_PRODUCT}/${productData?.id}/${productData?.title}`}
                 onMouseEnter={e => {
                     e.stopPropagation()
                     setIsShowOption(true)
@@ -33,13 +36,13 @@ const Product = ({ productData, isNew }) => {
                 </div>
 
                 <div className="product_info">
-                    <span className="product_star">{renderStarFromNumber(productData?.totalRatings)?.map((el,index)=>(
-                                                <span key={index}>{el}</span>
-                                            ))}</span>
+                    <span className="product_star">{renderStarFromNumber(productData?.totalRatings)?.map((el, index) => (
+                        <span key={index}>{el}</span>
+                    ))}</span>
                     <span className="product_title">{productData?.title}</span>
                     <span>{`${formatMoney(productData?.price)} VNĐ`}</span>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }

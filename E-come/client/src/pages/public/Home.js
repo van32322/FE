@@ -55,7 +55,7 @@ const Home = () => {
                 <h3 className="home_container_newArrival_title">BLOG POSTS </h3>
 
             </div>
-            <div className="home_container_footer"></div>
+            
         </>
     )
 }
