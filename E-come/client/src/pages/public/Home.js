@@ -5,8 +5,11 @@ import { useSelector } from "react-redux";
 import icons from "../../utils/icons";
 const { IoIosArrowForward } = icons
 const Home = () => {
+
     const { newProducts } = useSelector((state) => state.products);
     const { categories } = useSelector((state) => state.app);
+    const { isLoggedIn,current } = useSelector((state) => state.user);
+
     return (
         <>
             <div className="home_container">
