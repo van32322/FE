@@ -36,6 +36,7 @@
     }
 
     &_items1 {
+        cursor: pointer;
         padding: 0 24px 0 24px;
         border-right: 1px solid;
         display: flex;
@@ -45,10 +46,11 @@
     }
 
     &_items2 {
+        cursor: pointer;
         padding: 0 24px 0 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2px;
+        gap: 8px;
     }
 }

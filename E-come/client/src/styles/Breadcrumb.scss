@@ -1,0 +1,16 @@
+.breadcrumb_container{
+    font-size: 16px;
+    display: flex;
+    align-self: center;
+    gap:4px;
+}
+.breadcrumb_info{
+    gap: 4px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    &_hover{
+        color: red;
+    }
+}

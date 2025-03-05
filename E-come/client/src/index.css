@@ -2,15 +2,18 @@ body {
     margin: 0;
     padding: 0;
 }
-button.slick-next{
+
+button.slick-next {
     right: 80px;
     z-index: 10;
 }
-button.slick-left{
+
+button.slick-left {
     left: 20px;
     z-index: 10;
 }
-button.slick-next::before{
+
+button.slick-next::before {
     color: gray;
     content: '\276F';
     width: 80px;
@@ -21,7 +24,8 @@ button.slick-next::before{
     justify-content: center;
     align-items: center;
 }
-button.slick-prev::before{
+
+button.slick-prev::before {
     color: gray;
     content: '\276F';
     width: 80px;
@@ -32,10 +36,40 @@ button.slick-prev::before{
     justify-content: center;
     align-items: center;
 }
+
 .line-clamp-1 {
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* Giới hạn số dòng */
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; /* Hiển thị dấu "..." */
-  }
+    text-overflow: ellipsis;
+    /* Hiển thị dấu "..." */
+}
+
+.slide-right {
+    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}

@@ -19,4 +19,20 @@
             color: gray;
         }
     }
+    &_after_login{
+        display: flex;
+        gap:16px;
+        font-size: 14px;
+        align-items: center;
+        
+        &_icon{
+            padding: 8px;
+            cursor: pointer;
+            &:hover{
+                border-radius: 9999px;
+                background-color: #e5e7eb;
+                color: red;
+            }
+        }
+    }
 }

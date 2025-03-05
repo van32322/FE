@@ -42,9 +42,9 @@ const Home = () => {
                                     <h4 className="home_container_hotCollection_item_title">{el.title}</h4>
                                     <ul className="home_container_hotCollection_list">
                                         {el?.brand?.map(item => (
-                                            <span className="home_container_hotCollection_list_item">
+                                            <span key={item} className="home_container_hotCollection_list_item">
                                                 <IoIosArrowForward size={14} />
-                                                <li key={item}>{item}</li>
+                                                <li >{item}</li>
                                             </span>
                                         ))}
                                     </ul>

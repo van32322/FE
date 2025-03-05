@@ -30,7 +30,9 @@ const Header = () => {
                     <BsHandbagFill color="red" />
                     <span>0 item(s)</span>
                 </div>
-                <div className="header_container_items2"><FaUserCircle size={24} /></div>
+                <div className="header_container_items2"><FaUserCircle color="red" size={24} />
+                <span>Profile</span>
+                </div>
             </div>
         </div>
     )

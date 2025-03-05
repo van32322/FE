@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const apiGetProducts = async (params) => {
     try {
         const response = await axios.get("http://localhost:5000/products", { params });
@@ -20,3 +19,22 @@ export const apiGetProducts = async (params) => {
         }
     }
 };
+export const apiGetProduct = async (pid) => {
+    try {
+        if (!pid) throw new Error("PID không hợp lệ!");
+
+        // Fake API Response (vì chưa có Backend)
+        const fakeData = {
+            id: pid,
+            name: "Sản phẩm demo",
+            price: 100000,
+            description: "Đây là một sản phẩm demo vì chưa có Backend.",
+        };
+
+        return { success: true, product: fakeData };
+    } catch (error) {
+        console.error("Lỗi khi gọi API:", error);
+        return { success: false, message: error.message || "Không tìm thấy sản phẩm!" };
+    }
+};
+

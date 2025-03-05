@@ -71,7 +71,9 @@ const DealDaily = () => {
             <div className="dealDaily_content">
                 <img src={dealDaily?.image[0] || ''} alt="" className="dealDaily_image"></img>
                 <span className="dealDaily_title line-clamp-1">{dealDaily?.title}</span>
-                <span className="dealDaily_star">{renderStarFromNumber(dealDaily?.totalRatings, 20)}</span>
+                <span className="dealDaily_star">{renderStarFromNumber(dealDaily?.totalRatings, 20)?.map((el,index)=>(
+                    <span key={index}>{el}</span>
+                ))}</span>
                 <span>{`${formatMoney(dealDaily?.price)} VNĐ`}</span>
             </div>
             <div className="dealDaily_button_group">

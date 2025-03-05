@@ -6,14 +6,13 @@ import { renderStarFromNumber } from '../utils/helpers'
 import { SelectOption } from '../components/index'
 import icons from '../utils/icons'
 import { Link } from "react-router-dom";
-import path from "../utils/path";
 const { AiFillEye, IoMenu, BsFillSuitHeartFill } = icons
 const Product = ({ productData, isNew }) => {
     const [isShowOption, setIsShowOption] = useState(false)
     return (
         <div className="product_container">
             <Link className="product_group"
-                to={`/${path.DETAIL_PRODUCT}/${productData?.id}/${productData?.title}`}
+                to={`/${productData?.category?.toLowerCase()}/${productData?.id}/${productData?.title}`}
                 onMouseEnter={e => {
                     e.stopPropagation()
                     setIsShowOption(true)

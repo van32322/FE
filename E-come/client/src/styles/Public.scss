@@ -4,6 +4,9 @@
     align-items: center;
     flex-direction: column;
     &_outlet{
-        width: 1220px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
     }
 }
