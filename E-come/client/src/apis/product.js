@@ -37,4 +37,9 @@ export const apiGetProduct = async (pid) => {
         return { success: false, message: error.message || "Không tìm thấy sản phẩm!" };
     }
 };
+export const apiRatings=(data)=>axios({
+    url:'/product/ratings',
+    method:'get',
+    data
+})
 

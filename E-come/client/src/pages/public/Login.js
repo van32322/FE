@@ -1,13 +1,14 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Limg from "../../assets/loginAndRegisterBackGround.png"
 import "../../styles/Login.scss"
-import { InputField, Button } from "../../components";
+import { InputField, Button,Loading } from "../../components";
 import { apiRegister, apiLogin, apiForgotPassword, apiFinalRegister } from '../../apis/user'
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import path from "../../utils/path";
 import { useDispatch } from "react-redux";
 import { login } from '../../store/user/userSlice'
+import { showModal } from "../../store/app/appSlice";
 import { toast } from "react-toastify";
 import { validate } from "../../utils/helpers";
 const Login = () => {
@@ -51,7 +52,9 @@ const Login = () => {
         const invalids = isRegister ? validate(payload,setInvalidFields) : validate(data,setInvalidFields)
         if (invalids === 0) {
             if (isRegister) {
+                dispatch(showModal({isShowModal:true,modalChilren:<Loading/>}))
                 const response = await apiRegister(payload)
+                dispatch(showModal({isShowModal:false,modalChilren:null}))
                 if (response.success) {
                     setIsVerifiedEmail(true)
                     // Swal.fire('Congratulation', response.mes, 'success').then(() => {
@@ -106,8 +109,8 @@ const Login = () => {
                         <label htmlFor="email">Enter your email</label>
                         <input type="text" id="email" className="login_modal_input" placeholder="Exp:email@gmail.com" value={email} onChange={e => setEmail(e.target.value)}></input>
                         <div className="login_modal_submit">
-                            <Button name='Submit' handleOnClick={handleForgotPassword} />
-                            <Button name='Back' handleOnClick={() => setIsForgotPassword(false)}
+                            <Button children='Submit' handleOnClick={handleForgotPassword} />
+                            <Button children='Back' handleOnClick={() => setIsForgotPassword(false)}
 
                             />
                         </div>
@@ -160,7 +163,7 @@ const Login = () => {
                         InvalidFields={invalidFields}
                         setInvalidFields={setInvalidFields}
                     />
-                    <Button name={isRegister ? 'Register' : 'Login'} handleOnClick={handleSubmit} fw />
+                    <Button children={isRegister ? 'Register' : 'Login'} handleOnClick={handleSubmit} fw  />
                     <div className="login_form_link_group">
                         {!isRegister && <span onClick={() => setIsForgotPassword(true)} className="login_form_link">Forgot your account</span>}
                         {!isRegister && <span className="login_form_link" onClick={() => setIsRegister(true)}>Create an account</span>}

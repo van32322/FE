@@ -1,10 +1,11 @@
-import {RiPhoneFill} from "react-icons/ri";
-import {MdEmail} from "react-icons/md";
-import {BsFillSuitHeartFill, BsHandbagFill} from "react-icons/bs";
-import {FaUserCircle} from "react-icons/fa";
-import {AiFillEye, AiFillHome, AiFillStar, AiOutlineLogout, AiOutlineMenu, AiOutlineStar} from "react-icons/ai";
+import {RiBillLine, RiPhoneFill, RiTruckFill} from "react-icons/ri";
+import {MdEmail, MdGroups} from "react-icons/md";
+import {BsFillSuitHeartFill, BsHandbagFill, BsReplyFill, BsShieldShaded} from "react-icons/bs";
+import {FaTty, FaUserCircle} from "react-icons/fa";
+import {AiFillEye, AiFillGift, AiFillHome, AiFillStar, AiOutlineDashboard, AiOutlineDown, AiOutlineLogout, AiOutlineMenu, AiOutlineStar} from "react-icons/ai";
 import  {IoMenu} from "react-icons/io5";
 import {IoIosArrowForward} from "react-icons/io";
+import {TbBrandProducthunt}from 'react-icons/tb'
 const icons={
     RiPhoneFill,
     MdEmail,
@@ -18,7 +19,17 @@ const icons={
     BsFillSuitHeartFill,
     AiOutlineMenu,
     IoIosArrowForward,
-    AiOutlineLogout
+    AiOutlineLogout,
+    BsShieldShaded,
+    RiTruckFill,
+    AiFillGift,
+    BsReplyFill,
+    FaTty,
+    AiOutlineDown,
+    AiOutlineDashboard,
+    MdGroups,
+    TbBrandProducthunt,
+    RiBillLine
     
 }
 export default icons

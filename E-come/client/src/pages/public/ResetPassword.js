@@ -21,7 +21,7 @@ const ResetPassword = () => {
                                 <label htmlFor="password">Enter your new password:</label>
                                 <input type="text" id="password" className="login_modal_input" placeholder="Type here" value={password} onChange={e => setPassword(e.target.value)}></input>
                                 <div className="login_modal_submit">
-                                    <Button name='Submit' handleOnClick={handleResetPassword} />
+                                    <Button children='Submit' handleOnClick={handleResetPassword} />
                                 </div>
                             </div>
                         </div>

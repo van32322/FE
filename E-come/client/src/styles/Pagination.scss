@@ -1,0 +1,33 @@
+.pagination_container {
+    display: flex;
+    align-items: center;
+}
+
+.pagination_items {
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+   
+}
+
+.pagination_items2 {
+    padding-bottom: 2px;
+    cursor: default;
+    padding-top: 12px;
+}
+
+.pagination_items3 {
+    align-items: center;
+    &:hover {
+        border-radius: 9999px;
+        background-color: #d1d5db;
+    }
+}
+.pagination_items4{
+    border-radius: 9999px;
+    background-color: #d1d5db;
+}

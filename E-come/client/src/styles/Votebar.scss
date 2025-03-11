@@ -1,0 +1,31 @@
+.votebar_container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #6b7280;
+}
+.votebar{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    justify-content: center;
+}
+.votebar_percent{
+    width: 75%;
+}
+.votebar_ratingCount{
+    width: 15%;
+    font-size: 14px;
+    display: flex;
+    justify-content: end;
+}
+.votebar_progress{
+    position: absolute;
+    inset: 0;
+    background-color: red;
+    right: 8px;
+}

@@ -1,0 +1,95 @@
+.searchItem_container {
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 14px;
+    gap: 16px;
+}
+
+.searchItem_input {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    &_items {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &_item {
+        width: 90px;
+        padding: 8px 16px;
+        border: 1px solid #d1d5db;
+        /* Tương đương border-gray-300 */
+        border-radius: 6px;
+        /* Tương đương rounded-md */
+        outline: none;
+        /* focus:outline-none */
+        transition: border-color 0.2s, box-shadow 0.2s;
+
+        &:focus {
+            border-color: #3b82f6;
+            /* Tương đương focus:ring-blue-500 */
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+        }
+    }
+}
+
+.searchItem_content {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: fit-content;
+    padding: 12px;
+    border: 1px solid lightgray;
+    background-color: white;
+    min-width: 150px;
+}
+
+.searchItem_name {
+    text-transform: capitalize;
+}
+
+.searchItem_checkbox {
+    padding: 8px;
+
+    &_items {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &_info {
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.custom-input {
+
+    appearance: auto;
+    /* Đảm bảo checkbox hiển thị theo mặc định của trình duyệt */
+
+
+    width: 16px;
+    /* w-4 */
+    height: 16px;
+    /* h-4 */
+    color: #2563eb;
+    /* text-blue-600 */
+    background-color: #f3f4f6;
+    /* bg-gray-100 */
+    border-radius: 4px;
+    /* rounded */
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
+}

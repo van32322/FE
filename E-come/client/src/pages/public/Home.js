@@ -15,7 +15,7 @@ const Home = () => {
             <div className="home_container">
                 <div className="home_container_sidebar">
                     <Sidebar />
-                    {/* <DealDaily /> */}
+                    <DealDaily />
                 </div>
                 <div className="home_container_banner">
                     <Banner />

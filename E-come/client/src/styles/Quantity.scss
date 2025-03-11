@@ -1,0 +1,19 @@
+.quantity_minus{
+    padding: 8px;
+    border-right: 1px solid black;
+    cursor: pointer;
+}
+.quantity_plus{
+    cursor: pointer;
+    width: 30px;
+    color: black;
+    padding: 8px;
+    border-left: 1px solid black;
+}
+.quantity_input{
+    text-align: center;
+    width: 40px;
+    padding: 8px 6px 8px 15px;
+    outline: none;
+    border: none;
+}
